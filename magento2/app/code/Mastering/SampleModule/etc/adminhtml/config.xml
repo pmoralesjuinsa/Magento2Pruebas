@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <!-- Estos tados son referentes al documento anterior -->
+    <default>
+        <!-- section id="mastering" -->
+        <mastering>
+            <!-- group id="general" -->
+            <general>
+                <!-- field id="enabled" -->
+                <enabled>0</enabled>
+                <!-- field id="cron_expression"  -->
+                <cron_expression>* * * * *</cron_expression>
+            </general>
+        </mastering>
+    </default>
+</config>
