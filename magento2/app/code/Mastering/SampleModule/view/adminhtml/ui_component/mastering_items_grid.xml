@@ -60,16 +60,6 @@
                 </item>
             </argument>
         </action>
-        <action name="edit">
-            <settings>
-                <callback>
-                    <target>editSelected</target>
-                    <provider>mastering_items_grid.mastering_items_grid.mastering_items_columns_editor</provider>
-                </callback>
-                <type>edit</type>
-                <label translate="true">Edit</label>
-            </settings>
-        </action>
     </massaction>
     <columns name="mastering_items_columns">
 <!--        <settings>-->
@@ -104,14 +94,14 @@
                             <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
                         </item>
                     </item>
-<!--                    <item name="fieldAction" xsi:type="array">-->
-<!--                        <item name="provider" xsi:type="string">mastering_items_grid.mastering_items_grid.mastering_items_columns.actions</item>-->
-<!--                        <item name="target" xsi:type="string">applyAction</item>-->
-<!--                        <item name="params" xsi:type="array">-->
-<!--                            <item name="0" xsi:type="string">edit</item>-->
-<!--                            <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>-->
-<!--                        </item>-->
-<!--                    </item>-->
+                    <item name="fieldAction" xsi:type="array">
+                        <item name="provider" xsi:type="string">mastering_items_grid.mastering_items_grid.mastering_items_columns.actions</item>
+                        <item name="target" xsi:type="string">applyAction</item>
+                        <item name="params" xsi:type="array">
+                            <item name="0" xsi:type="string">edit</item>
+                            <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
+                        </item>
+                    </item>
                 </item>
             </item>
         </argument>
@@ -138,7 +128,18 @@
                 </item>
             </argument>
         </column>
-<!--        <actionsColumn name="actions" class="Mastering\SampleModule\Ui\Component\Listing\Grid\Column\Action">-->
+            <actionsColumn name="actions" class="Mastering\SampleModule\Ui\Component\Listing\Column\Actions">
+                <settings>
+                    <label translate="true">Actions</label>
+                </settings>
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="indexField" xsi:type="string">id</item>
+                    </item>
+                </argument>
+            </actionsColumn>
+
+        <!--        <actionsColumn name="actions" class="Mastering\SampleModule\Ui\Component\Listing\Grid\Column\Action">-->
 <!--            <argument name="data" xsi:type="array">-->
 <!--                <item name="config" xsi:type="array">-->
 <!--                    <item name="resizeEnabled" xsi:type="boolean">false</item>-->
