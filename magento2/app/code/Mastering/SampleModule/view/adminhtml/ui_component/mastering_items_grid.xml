@@ -132,11 +132,6 @@
                 <settings>
                     <label translate="true">Actions</label>
                 </settings>
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="indexField" xsi:type="string">id</item>
-                    </item>
-                </argument>
             </actionsColumn>
 
         <!--        <actionsColumn name="actions" class="Mastering\SampleModule\Ui\Component\Listing\Grid\Column\Action">-->

@@ -12,7 +12,7 @@ use Magento\Ui\Component\Listing\Columns\Column;
 class Actions extends Column
 {
 
-    const URL_PATH_EDIT = 'mastering/item/edit';
+    const URL_PATH_EDIT = 'mastering/item/new';
     const URL_PATH_DELETE = 'mastering/item/delete';
 
 
@@ -54,7 +54,7 @@ class Actions extends Column
                         ),
                         'label' => __('Delete'),
                         'confirm' => [
-                            'title' => __('Delete "${ $.$data.title }"'),
+                            'title' => __('Delete "${ $.$data.name }"'),
                             'message' => __('Are you sure you wan\'t to delete a "${ $.$data.name }" record?')
                         ]
                     ]
