@@ -52,7 +52,7 @@
                 <item name="config" xsi:type="array">
                     <item name="type" xsi:type="string">delete</item>
                     <item name="label" xsi:type="string" translate="true">Delete</item>
-                    <item name="url" xsi:type="url" path="grid/grid/massdelete"/>
+                    <item name="url" xsi:type="url" path="mastering/items/massdelete"/>
                     <item name="confirm" xsi:type="array">
                         <item name="title" xsi:type="string" translate="true">Delete</item>
                         <item name="message" xsi:type="string" translate="true">Do you want to delete selected row record?</item>
@@ -65,7 +65,7 @@
 <!--        <settings>-->
 <!--            <editorConfig>-->
 <!--                <param name="clientConfig" xsi:type="array">-->
-<!--                    <item name="saveUrl" xsi:type="url" path="grid/grid/inlineEdit"/>-->
+<!--                    <item name="saveUrl" xsi:type="url" path="/inlineEdit"/>-->
 <!--                    <item name="validateBeforeSave" xsi:type="boolean">false</item>-->
 <!--                </param>-->
 <!--                <param name="indexField" xsi:type="string">entity_id</param>-->
