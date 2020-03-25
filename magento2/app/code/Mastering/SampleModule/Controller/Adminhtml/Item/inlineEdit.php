@@ -1,42 +1,29 @@
 <?php
-namespace Webkul\Grid\Controller\Adminhtml\Grid;
 
-use Magento\Backend\App\Action\Context;
-use Magento\Framework\Controller\Result\JsonFactory;
 
-class inlineEdit extends \Magento\Backend\App\Action
+namespace Mastering\SampleModule\Controller\Adminhtml\Item;
+
+use \Magento\Backend\App\Action;
+use \Magento\Backend\App\Action\Context;
+use \Magento\Framework\Controller\Result\JsonFactory;
+use \Magento\Framework\Controller\Result\Json;
+
+class InlineEdit extends Action
 {
-    /**
-     * @var \Webkul\Grid\Model\GridFactory
-     */
-    protected $gridFactory;
 
-    /** @var JsonFactory  */
     protected $jsonFactory;
 
-    /**
-     * inlineEdit constructor.
-     *
-     * @param Context $context
-     * @param \Webkul\Grid\Model\GridFactory $gridFactory
-     * @param JsonFactory $jsonFactory
-     */
     public function __construct(
         Context $context,
-        \Webkul\Grid\Model\GridFactory $gridFactory,
         JsonFactory $jsonFactory
     ) {
         parent::__construct($context);
-        $this->gridFactory = $gridFactory;
         $this->jsonFactory = $jsonFactory;
     }
 
-    /**
-     * @return \Magento\Framework\Controller\ResultInterface
-     */
     public function execute()
     {
-        /** @var \Magento\Framework\Controller\Result\Json $resultJson */
+        /** @var Json $resultJson */
         $resultJson = $this->jsonFactory->create();
         $error = false;
         $messages = [];
@@ -47,16 +34,14 @@ class inlineEdit extends \Magento\Backend\App\Action
                 $messages[] = __('Please correct the data sent.');
                 $error = true;
             } else {
-                foreach (array_keys($postItems) as $gridId) {
-                    $grid = $this->gridFactory->create()->load($gridId);
+                foreach (array_keys($postItems) as $entityId) {
+                    /** load your model to update the data */
+                    $model = $this->_objectManager->create('Mastering\SampleModule\Model\Item')->load($entityId);
                     try {
-                        $grid->setData(array_merge($grid->getData(), $postItems[$gridId]));
-                        $grid->save();
+                        $model->setData(array_merge($model->getData(), $postItems[$entityId]));
+                        $model->save();
                     } catch (\Exception $e) {
-                        $messages[] = $this->getErrorWithGridId(
-                            $grid,
-                            __($e->getMessage())
-                        );
+                        $messages[] = "[Error:]  {$e->getMessage()}";
                         $error = true;
                     }
                 }
@@ -67,15 +52,5 @@ class inlineEdit extends \Magento\Backend\App\Action
             'messages' => $messages,
             'error' => $error
         ]);
-    }
-
-    /**
-     * @param $grid
-     * @param $errorText
-     * @return string
-     */
-    protected function getErrorWithGridId($grid, $errorText)
-    {
-        return '[Grid ID: ' . $grid->getId() . '] ' . $errorText;
     }
 }

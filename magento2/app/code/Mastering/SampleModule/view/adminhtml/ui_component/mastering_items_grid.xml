@@ -62,38 +62,10 @@
         </action>
     </massaction>
     <columns name="mastering_items_columns">
-<!--        <settings>-->
-<!--            <editorConfig>-->
-<!--                <param name="clientConfig" xsi:type="array">-->
-<!--                    <item name="saveUrl" xsi:type="url" path="/inlineEdit"/>-->
-<!--                    <item name="validateBeforeSave" xsi:type="boolean">false</item>-->
-<!--                </param>-->
-<!--                <param name="indexField" xsi:type="string">entity_id</param>-->
-<!--                <param name="enabled" xsi:type="boolean">true</param>-->
-<!--                <param name="selectProvider" xsi:type="string">mastering_items_grid.mastering_items_grid.mastering_items_columns.ids</param>-->
-<!--            </editorConfig>-->
-<!--            <childDefaults>-->
-<!--                <param name="fieldAction" xsi:type="array">-->
-<!--                    <item name="provider" xsi:type="string">mastering_items_grid.mastering_items_grid.mastering_items_columns_editor</item>-->
-<!--                    <item name="target" xsi:type="string">startEdit</item>-->
-<!--                    <item name="params" xsi:type="array">-->
-<!--                        <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>-->
-<!--                        <item name="1" xsi:type="boolean">true</item>-->
-<!--                    </item>-->
-<!--                </param>-->
-<!--            </childDefaults>-->
-<!--        </settings>-->
+<!--        El argumento hace que por defecto al hacer click en la fila entera, vaya directo a la pagina de editar-->
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="childDefaults" xsi:type="array">
-                    <item name="fieldAction" xsi:type="array">
-                        <item name="provider" xsi:type="string">mastering_items_grid.mastering_items_grid.mastering_items_columns.actions</item>
-                        <item name="target" xsi:type="string">applyAction</item>
-                        <item name="params" xsi:type="array">
-                            <item name="0" xsi:type="string">view</item>
-                            <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
-                        </item>
-                    </item>
                     <item name="fieldAction" xsi:type="array">
                         <item name="provider" xsi:type="string">mastering_items_grid.mastering_items_grid.mastering_items_columns.actions</item>
                         <item name="target" xsi:type="string">applyAction</item>
@@ -105,16 +77,47 @@
                 </item>
             </item>
         </argument>
+<!--        Argumento parecido al de arriba pero en lugar de abrir el edit en la url new/id/X, es para el inlineEdit-->
+<!--        <argument name="data" xsi:type="array">-->
+<!--            <item name="config" xsi:type="array">-->
+<!--                <item name="childDefaults" xsi:type="array">-->
+<!--                    <item name="fieldAction" xsi:type="array">-->
+<!--                        <item name="provider" xsi:type="string">mastering_items_grid.mastering_items_grid.mastering_items_columns_editor</item>-->
+<!--                        <item name="target" xsi:type="string">startEdit</item>-->
+<!--                        <item name="params" xsi:type="array">-->
+<!--                            <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>-->
+<!--                            <item name="1" xsi:type="boolean">true</item>-->
+<!--                        </item>-->
+<!--                    </item>-->
+<!--                </item>-->
+<!--            </item>-->
+<!--        </argument>-->
         <selectionsColumn name="ids">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="indexField" xsi:type="string">id</item>
                 </item>
+<!--                <item name="editorConfig" xsi:type="array">-->
+<!--                    <item name="selectProvider" xsi:type="string">mastering_items_grid.mastering_items_grid.mastering_items_columns.ids</item>-->
+<!--                    <item name="enabled" xsi:type="boolean">true</item>-->
+<!--                    <item name="indexField" xsi:type="string">id</item>-->
+<!--                    <item name="clientConfig" xsi:type="array">-->
+<!--                        <item name="saveUrl" xsi:type="url" path="mastering/item/inlineEdit"/>-->
+<!--                        <item name="validateBeforeSave" xsi:type="boolean">false</item>-->
+<!--                    </item>-->
+<!--                </item>-->
             </argument>
         </selectionsColumn>
         <column name="name">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                            <item name="validate-no-html-tags" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
                     <item name="filter" xsi:type="string">text</item>
                     <item name="label" xsi:type="string" translate="true">Name</item>
                 </item>
@@ -123,6 +126,13 @@
         <column name="description">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                            <item name="validate-no-html-tags" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
                     <item name="filter" xsi:type="string">text</item>
                     <item name="label" xsi:type="string" translate="true">Description</item>
                 </item>
