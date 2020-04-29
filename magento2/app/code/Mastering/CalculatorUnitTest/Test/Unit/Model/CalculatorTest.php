@@ -26,8 +26,8 @@ class CalculatorTest extends TestCase
 
     public function sumProvider(){
         return [
-            'correct' => [2,1,1],
-            'correct' => [110,50,60]
+            [2,1,1],
+            [110,50,60]
         ];
     }
 

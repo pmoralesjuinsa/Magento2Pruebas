@@ -11,6 +11,6 @@ class BannerCalculator extends Template implements BlockInterface
     protected function _construct()
     {
         parent::_construct();
-        $this->setTemplate('widget/simple.phtml');
+        $this->setTemplate('widget/bannercalculator.phtml');
     }
 }
