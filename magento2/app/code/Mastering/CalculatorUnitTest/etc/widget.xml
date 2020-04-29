@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="Mastering_widget_bannercalculator" class="Mastering\CalculatorUnitTest\Block\Widget\BannerCalculator"
+            placeholder_image="Mastering_CalculatorUnitTest::images/widget.png">
+        <label translate="true">CalculatorUnitTest Widget</label>
+        <description translate="true">Just a example of widget</description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="false" visible="true">
+                <label translate="true">Title</label>
+            </parameter>
+            <parameter name="message" xsi:type="text" required="true" visible="true">
+                <label translate="true">Message</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
