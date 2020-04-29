@@ -46,4 +46,8 @@
     <type name="Mastering\SampleModule\Console\Command\AddItem">
         <plugin name="console_logging" type="Mastering\SampleModule\Plugin\Logger"/>
     </type>
+
+<!--    <preference for="Mastering\SampleModule\Api\OrderLuckInfoInterface"-->
+<!--                type="Mastering\SampleModule\Model\OrderLuckInfo"/>-->
+
 </config>
