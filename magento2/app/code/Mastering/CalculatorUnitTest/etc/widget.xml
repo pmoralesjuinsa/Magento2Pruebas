@@ -11,6 +11,17 @@
             <parameter name="message" xsi:type="text" required="true" visible="true">
                 <label translate="true">Message</label>
             </parameter>
+            <parameter name="numberOne" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number One</label>
+            </parameter>
+            <parameter name="numberTwo" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number Two</label>
+            </parameter>
+            <parameter name="operatorType" xsi:type="select" required="true" visible="true"
+                       source_model="Mastering\CalculatorUnitTest\Model\Config\Source\Select">
+                <label translate="true">Operation</label>
+                <description>Select operation type</description>
+            </parameter>
         </parameters>
     </widget>
 </widgets>

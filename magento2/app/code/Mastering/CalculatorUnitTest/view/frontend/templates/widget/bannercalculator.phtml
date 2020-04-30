@@ -1,8 +1,15 @@
 <?php
 $_title = $this->getData('title');
 $_message = $this->getData('message');
+$_numberOne = $this->getData('numberOne');
+$_numberTwo = $this->getData('numberTwo');
+$_operatorType = $this->getData('operatorType');
 ?>
-<?php if ($_title): ?>
-    <h1><?php echo $_title; ?></h1>
-<?php endif; ?>
-<p><?php echo $_message; ?></p>
+<div class="torero">
+    <?php if ($_title): ?>
+        <h1><?php echo $_title; ?></h1>
+    <?php endif; ?>
+    <p><?php echo $_message; ?></p>
+    <p><?=$_operatorType?></p>
+    <p><?=$_numberOne?> y <?=$_numberTwo?>=<?=$this->calculate($_operatorType, $_numberOne, $_numberTwo);?></p>
+</div>
