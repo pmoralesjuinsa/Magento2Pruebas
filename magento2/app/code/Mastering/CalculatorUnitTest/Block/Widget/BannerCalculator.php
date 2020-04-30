@@ -3,6 +3,7 @@
 
 namespace Mastering\CalculatorUnitTest\Block\Widget;
 
+use Magento\Backend\Block\Template\Context;
 use Magento\Widget\Block\BlockInterface;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\App\ObjectManager;
@@ -12,11 +13,11 @@ class BannerCalculator extends Template implements BlockInterface
 {
     protected $calculator;
 
-    protected function _construct()
+    protected function __construct(Context $context, Calculator $calculator, array $data = [])
     {
-        parent::_construct();
-        $objectManager = ObjectManager::getInstance();
-        $calculator = $objectManager->create(Calculator::class);
+        parent::__construct();
+//        $objectManager = ObjectManager::getInstance();
+//        $calculator = $objectManager->create(Calculator::class);
         $this->calculator = $calculator;
         $this->setTemplate('widget/bannercalculator.phtml');
     }

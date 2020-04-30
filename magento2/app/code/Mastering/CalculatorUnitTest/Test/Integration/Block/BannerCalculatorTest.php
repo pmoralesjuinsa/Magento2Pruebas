@@ -39,7 +39,7 @@ class BannerCalculatorTest extends TestCase
         $this->bannerCalculator->setData('message',$message);
         $this->bannerCalculator->setData('numberOne', $numberOne);
         $this->bannerCalculator->setData('numberTwo', $numberTwo);
-        $this->bannerCalculator->setData('operatorType', 'multiplica');
+        $this->bannerCalculator->setData('operatorType', 'multiplicacion');
 
         $html = $this->bannerCalculator->toHtml();
 
