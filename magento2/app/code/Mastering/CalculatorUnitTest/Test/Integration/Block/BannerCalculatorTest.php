@@ -30,8 +30,8 @@ class BannerCalculatorTest extends TestCase
 
         $title = 'buy in mangora';
         $message = 'It is the best online store';
-        $numberOne = 5;
-        $numberTwo = 3;
+        $numberOne = "5";
+        $numberTwo = "3";
 
         $template = 'Mastering_CalculatorUnitTest::widget/bannercalculator.phtml';
         $this->bannerCalculator->setTemplate($template);
@@ -55,7 +55,7 @@ class BannerCalculatorTest extends TestCase
         $expectedNumberTwo = $numberTwo;
         $this->assertContains($expectedNumberTwo, $html);
 
-        $expectedNumberMultiplication = 15;
+        $expectedNumberMultiplication = "15";
         $this->assertContains($expectedNumberMultiplication, $html);
 
         $parentDivCssClass = 'torero';
