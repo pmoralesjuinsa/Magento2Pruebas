@@ -10,7 +10,8 @@ RUN apt-get update \
     libpng-dev \
     libxslt1-dev \
     libfreetype6-dev \
-    libzip-dev
+    libzip-dev \
+    procps
 
 # install extensions
 RUN docker-php-ext-configure gd --with-jpeg-dir --with-freetype-dir && \
