@@ -17,7 +17,8 @@ class CalculatorTest extends TestCase
 
     /**
      * @param $result
-     * @param $amount
+     * @param $numeroUno
+     * @param $numeroDos
      * @dataProvider sumProvider
      */
     public function testSuma($result, $numeroUno, $numeroDos){
